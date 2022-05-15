@@ -8,3 +8,4 @@ Homestead.yaml
 /docker/postgres/pg-data/*
 /public/js/*
 /public/feed/*
+/node_modules
