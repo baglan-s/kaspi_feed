@@ -19,7 +19,7 @@ class FeedLinkHelper
      */
     public static function makeImportLink(string $hash): string
     {
-        return env('APP_URL') . self::LINK_IMPORT_PREFIX . $hash;
+        return env('ENDPOINT_URL') . self::LINK_IMPORT_PREFIX . $hash;
     }
     
         
@@ -31,7 +31,7 @@ class FeedLinkHelper
      */
     public static function makeExportLink(string $hash): string
     {
-        return env('APP_URL') . self::LINK_EXPORT_PREFIX . $hash;
+        return env('ENDPOINT_URL') . self::LINK_EXPORT_PREFIX . $hash;
     }
     
     /**

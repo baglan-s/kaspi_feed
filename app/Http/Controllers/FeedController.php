@@ -49,9 +49,9 @@ class FeedController extends Controller
      * export
      *
      * @param  mixed $hash
-     * @return JsonResource
+     * @return mixed
      */
-    public function export(string $hash): JsonResource
+    public function export(string $hash): mixed
     {
         $organization = Organization::where('hash', $hash)->first();
 

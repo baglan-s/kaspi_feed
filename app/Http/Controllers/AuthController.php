@@ -27,9 +27,7 @@ class AuthController extends Controller
     {
         if ($user = $this->attempt($this->validate($request, UserValidationRule::loginRule()))) {
             if ($userWithNewToken = $this->setUserToken($user)) {
-                return response()->json([
-                    'api_token' => $userWithNewToken->api_token,
-                ]);   
+                return new UserResource($userWithNewToken);   
             }
         };
 
@@ -43,6 +41,11 @@ class AuthController extends Controller
         $user = $this->createUser( $this->validate($request, UserValidationRule::createRule()) );
 
         return new UserResource($user);
+    }
+
+    public function authenticated()
+    {
+        return new UserResource(Auth::user());
     }
 
     public function logout()

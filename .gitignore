@@ -6,3 +6,5 @@ Homestead.yaml
 .phpunit.result.cache
 /docker/nginx/logs/*
 /docker/postgres/pg-data/*
+/public/js/*
+/public/feed/*
