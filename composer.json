@@ -7,7 +7,8 @@
     "require": {
         "php": "^7.3|^8.0",
         "laravel/lumen-framework": "^8.3.1",
-        "sentry/sentry-laravel": "^2.12"
+        "sentry/sentry-laravel": "^2.12",
+        "vlucas/phpdotenv": "^5.4"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -19,7 +20,8 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": ["public/feed/export.php"]
     },
     "autoload-dev": {
         "classmap": [

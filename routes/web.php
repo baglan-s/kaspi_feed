@@ -40,10 +40,10 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 });
 
 $router->group(['middleware' => 'auth'], function ($router) {
-    $router->post('/feed/import/{hash}', 'FeedController@import');
+    $router->post('/feed/import/{code}', 'FeedController@import');
 });
 
-$router->get('/feed/export/{hash}', 'FeedController@export');
+$router->get('/feed/export/{code}', 'FeedController@export');
 
 $router->get('/{any:.*}', function () {
     return view('app');

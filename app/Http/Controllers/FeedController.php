@@ -18,14 +18,14 @@ class FeedController extends Controller
      * import
      *
      * @param  mixed $request
-     * @param  mixed $hash
+     * @param  mixed $code
      * @return JsonResource
      */
-    public function import(Request $request, string $hash): JsonResource
+    public function import(Request $request, string $code): JsonResource
     {
         $this->validate($request, FeedRule::importRule());
         
-        if (!$organization = Organization::where('hash', $hash)->first()) {
+        if (!$organization = Organization::where('code', $code)->first()) {
             return new EntityNotFoundResource(null);
         }
 
@@ -48,12 +48,12 @@ class FeedController extends Controller
     /**
      * export
      *
-     * @param  mixed $hash
+     * @param  mixed $code
      * @return mixed
      */
-    public function export(string $hash): mixed
+    public function export(string $code): mixed
     {
-        $organization = Organization::where('hash', $hash)->first();
+        $organization = Organization::where('code', $code)->first();
 
         if ($organization && $organization->feed_path && file_exists($organization->feed_path)) {
             return response(file_get_contents($organization->feed_path), 200, ['Content-Type' => 'application/xml']);

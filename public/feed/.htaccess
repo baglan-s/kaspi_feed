@@ -1,0 +1,4 @@
+AuthName "Dialog prompt"
+AuthType Basic
+AuthUserFile /usr/local/.htpasswd
+Require valid-user

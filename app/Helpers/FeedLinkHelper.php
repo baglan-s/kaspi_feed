@@ -6,7 +6,7 @@ use App\Models\Organization;
 
 class FeedLinkHelper
 {
-    const LINK_EXPORT_PREFIX = '/feed/export/';
+    const LINK_EXPORT_PREFIX = '/feed/export.php?code=';
 
     const LINK_IMPORT_PREFIX = '/feed/import/';
 
@@ -14,51 +14,51 @@ class FeedLinkHelper
     /**
      * makeImportLink
      *
-     * @param  mixed $hash
+     * @param  mixed $code
      * @return string
      */
-    public static function makeImportLink(string $hash): string
+    public static function makeImportLink(string $code): string
     {
-        return env('ENDPOINT_URL') . self::LINK_IMPORT_PREFIX . $hash;
+        return env('ENDPOINT_URL') . self::LINK_IMPORT_PREFIX . $code;
     }
     
         
     /**
      * makeExportLink
      *
-     * @param  mixed $hash
+     * @param  mixed $code
      * @return string
      */
-    public static function makeExportLink(string $hash): string
+    public static function makeExportLink(string $code): string
     {
-        return env('ENDPOINT_URL') . self::LINK_EXPORT_PREFIX . $hash;
+        return env('ENDPOINT_URL') . self::LINK_EXPORT_PREFIX . $code;
     }
     
     /**
-     * isUniqueHash
+     * isUniquecode
      *
-     * @param  mixed $hash
+     * @param  mixed $code
      * @return bool
      */
-    private static function isUniqueHash(string $hash): bool
+    private static function isUniqueCode(string $code): bool
     {
-        return !Organization::where('hash', $hash)->first();
+        return !Organization::where('code', $code)->first();
     }
     
     /**
-     * generateUniqueLinkHash
+     * generateUniqueLinkcode
      *
      * @param  mixed $organization
      * @return string
      */
-    public static function generateUniqueLinkHash(Organization $organization): string
+    public static function generateUniqueLinkCode(Organization $organization): string
     {
-        $hash = $organization->id . '_' .  bin2hex(random_bytes(3));
+        $code = $organization->id . '_' .  bin2hex(random_bytes(3));
 
-        if (self::isUniqueHash($hash)) {
-            return $hash;
+        if (self::isUniqueCode($code)) {
+            return $code;
         }
 
-        self::generateUniqueLinkHash($organization);
+        self::generateUniqueLinkCode($organization);
     }
 }

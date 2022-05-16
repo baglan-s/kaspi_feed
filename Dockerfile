@@ -15,6 +15,7 @@ RUN set -e \
     && mkdir /app /home/user /run/nginx
 
 COPY ./docker/nginx/conf.d/ /etc/nginx/conf.d/
+COPY ./docker/.htpasswd /usr/local/.htpasswd
 COPY --chown=www-data:www-data . /app
 
 ENV DB_CONNECTION pgsql

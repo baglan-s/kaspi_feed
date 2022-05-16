@@ -7,5 +7,5 @@ Homestead.yaml
 /docker/nginx/logs/*
 /docker/postgres/pg-data/*
 /public/js/*
-/public/feed/*
+/public/feed/*.xml
 /node_modules

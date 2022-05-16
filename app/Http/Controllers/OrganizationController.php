@@ -24,7 +24,7 @@ class OrganizationController extends Controller
     {
         try {
             $organization = Organization::create($this->validate($request, OrganizationRule::createRule()));
-            $organization->hash = FeedLinkHelper::generateUniqueLinkHash($organization);
+            $organization->code = FeedLinkHelper::generateUniqueLinkCode($organization);
             $organization->save();
             
             return new OrganizationResource($organization);

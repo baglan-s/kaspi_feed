@@ -14,8 +14,8 @@ class OrganizationResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-            'import_link' => FeedLinkHelper::makeImportLink($this->hash),
-            'export_link' => FeedLinkHelper::makeExportLink($this->hash),
+            'import_link' => FeedLinkHelper::makeImportLink($this->code),
+            'export_link' => FeedLinkHelper::makeExportLink($this->code),
             'created_at' => $this->created_at->format('Y-m-d H:i'),
             'updated_at' => $this->updated_at->format('Y-m-d H:i'),
         ];
