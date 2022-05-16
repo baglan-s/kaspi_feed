@@ -1,4 +1,5 @@
 const axios = require('axios').default;
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
 const RequestHelper = {
     request: axios.create({
