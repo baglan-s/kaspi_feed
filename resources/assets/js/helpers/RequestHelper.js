@@ -3,7 +3,7 @@ axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
 const RequestHelper = {
     request: axios.create({
-        baseURL: 'http://localhost:8080/api/',
+        baseURL: 'http://91.201.215.157/api/',
         timeout: 5000,
         headers: {'Content-Type': 'application/json'}
     }),
