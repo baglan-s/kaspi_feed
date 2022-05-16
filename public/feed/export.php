@@ -23,6 +23,7 @@ try {
         header('Content-Type: application/xml');
         header('Last-modified: ' . date('D, j F y H:i:s', strtotime($data['updated_at'])) . ' +0600');
         header('Content-Disposition: inline; filename=' . $fileName);
+        header('Content-Length: '.filesize($_SERVER['DOCUMENT_ROOT'] . '/' . $data['feed_path']));
         echo file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/' . $data['feed_path']);
 
         exit;
