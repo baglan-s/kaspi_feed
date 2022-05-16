@@ -43,6 +43,7 @@
     "webpack-dev-server": "^4.9.0"
   },
   "dependencies": {
+    "@babel/core": "^7.17.10",
     "@grafikri/vue-middleware": "^1.0.0",
     "axios": "^0.27.2",
     "bootstrap": "^5.1.3",
