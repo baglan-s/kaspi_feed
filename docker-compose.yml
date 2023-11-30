@@ -9,7 +9,7 @@ services:
     image: nginx:stable-alpine
     container_name: lumen-nginx
     ports:
-      - "80:5000"
+      - "3070:5000"
     depends_on:
       - php
     networks:
@@ -23,7 +23,7 @@ services:
     image: postgres:14-alpine3.15
     container_name: lumen-postgres
     ports:
-      - "5439:5439"
+      - "5435:5435"
     restart: unless-stopped
     tty: true
     environment:
@@ -39,7 +39,7 @@ services:
       - lumen
 
   php:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
     container_name: lumen-php

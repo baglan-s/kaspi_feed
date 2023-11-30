@@ -2,7 +2,9 @@
     <div>
         <Menubar :model="authorizedItems" class="d-flex justify-content-between">
             <template #start>
-                <img alt="logo" src="https://www.primefaces.org/primevue/img/logo.d32bce0e.svg" height="40" class="mr-3">
+                <a href="/">
+                    <img alt="logo" src="https://www.primefaces.org/primevue/img/logo.d32bce0e.svg" height="40" class="mr-3">
+                </a>
             </template>
         </Menubar>
 
@@ -63,7 +65,7 @@
                                 this.setLoading();
                                 console.log(error)
                             });
-                            
+
                         }
                     },
                     {
