@@ -16,6 +16,7 @@ RUN set -e \
 
 COPY ./docker/nginx/conf.d/ /etc/nginx/conf.d/
 COPY ./docker/.htpasswd /usr/local/.htpasswd
+COPY ./docker/php/custom.ini /usr/local/etc/php/conf.d/docker-php-custom.ini
 COPY --chown=www-data:www-data . /app
 
 ENV DB_CONNECTION pgsql
